@@ -1,0 +1,5 @@
+{
+  "presets": [
+    "@nec-network/babel-preset-universal"
+  ]
+}

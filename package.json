@@ -1,0 +1,48 @@
+{
+  "name": "@nec-network/redux-namespaces",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "description": "Namespaces for Redux actions, reducers and state.",
+  "author": "Network Development <networkdevelopment@mi9.com.au>",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://npm.9msn.net:4873"
+  },
+  "scripts": {
+    "prepublish": "gulp build",
+    "build": "gulp build",
+    "lint": "eslint src",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "ci": "npm test -- --config jest.config.json",
+    "prepush": "npm test"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0"
+  },
+  "devDependencies": {
+    "@nec-network/babel-preset-universal": "~0.0.3",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-register": "^6.9.0",
+    "del": "^2.2.1",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "husky": "^0.13.2",
+    "jest": "^19.0.2",
+    "jest-teamcity-reporter": "^0.4.0",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
+    "run-sequence": "^1.2.2"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
