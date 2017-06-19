@@ -2,7 +2,6 @@
 .editorconfig
 .eslintrc
 .gitignore
-bower_components
 coverage
 gulpfile.babel.js
 test

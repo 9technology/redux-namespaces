@@ -1,17 +1,10 @@
 import invariant from 'invariant';
-import { createActions } from 'redux-actions';
-import {
-    isEmpty,
-    isString,
-    snakeCase,
-    upperCase,
-    isFunction,
-    identity,
-    camelCase
-} from 'lodash';
-import metaCreator from './meta-creator';
-import wrapCreator from './wrap-creator';
-import { ACTION_PREFIX, ACTION_SEPARATOR } from './constants';
+import isEmpty from 'is-empty';
+import isString from 'is-string';
+import isFunction from 'is-function';
+import snakeCase from 'to-snake-case';
+import actionName from './action-name';
+import { ACTION_PREFIX } from './constants';
 
 export default (namespace, creatorsMap = {}) => {
     invariant(
@@ -20,15 +13,15 @@ export default (namespace, creatorsMap = {}) => {
     );
 
     // construct a map for redux-actions
-    const actionsMap = Object.keys(creatorsMap).reduce((creators, key) => {
+    return Object.keys(creatorsMap).reduce((creators, key) => {
         let creator = creatorsMap[key];
-        let type;
+        let methodType;
 
         // swap string creators
         if (isString(creator)) {
-            [type, creator] = [creator, identity];
+            [methodType, creator] = [creator, v => v];
         } else {
-            type = upperCase(snakeCase(key)); // fooBar => FOO_BAR
+            methodType = snakeCase(key).toUpperCase(); // fooBar => FOO_BAR
         }
 
         invariant(
@@ -38,22 +31,24 @@ export default (namespace, creatorsMap = {}) => {
 
         return {
             ...creators,
-            [type]: [
-                creator,
-                metaCreator(namespace, type),
-            ],
+            [key](...args) {
+                const action = creator(...args) || {};
+                let actionType = methodType;
+
+                if (action.type && action.type !== methodType) {
+                    actionType = action.type;
+                }
+
+                return {
+                    ...action,
+                    type: actionName(actionType),
+                    [ACTION_PREFIX]: {
+                        actionType,
+                        methodType,
+                        namespace,
+                    },
+                };
+            },
         };
     }, {});
-
-    const actions = createActions(
-        { [ACTION_PREFIX]: actionsMap },
-        { namespace: ACTION_SEPARATOR }
-    );
-    const actionsKey = camelCase(ACTION_PREFIX);
-
-    // return the same hash structure
-    return Object.keys(actions[actionsKey]).reduce((creators, type) => ({
-        ...creators,
-        [type]: wrapCreator(actions[actionsKey][type]),
-    }), {});
 };
