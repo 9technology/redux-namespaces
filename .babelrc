@@ -9,17 +9,27 @@
       "exclude": [
         "transform-regenerator"
       ]
-    }]
+    }],
+    "flow"
   ],
   "plugins": [
-    "external-helpers",
     "transform-export-extensions",
     "transform-object-rest-spread"
   ],
   "env": {
-    "build": {
+    "lib": {
       "plugins": [
         "transform-es2015-modules-commonjs"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "dist": {
+      "plugins": [
+        "external-helpers"
       ]
     }
   }

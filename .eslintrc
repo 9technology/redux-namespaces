@@ -2,23 +2,25 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "plugins": [
-    "jest"
+    "jest",
+    "flowtype"
   ],
   "rules": {
     "indent": ["error", 4, {
-        "SwitchCase": 1
-      }],
-      "no-param-reassign": ["error", {
-        "props": false
-      }],
-      "comma-dangle": ["error", {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "functions": "never"
-      }],
-      "react/jsx-indent": ["error", 4],
-      "react/jsx-filename-extension": ["error", {
-        "extensions": [".js", ".jsx"]
-      }]
+      "SwitchCase": 1
+    }],
+    "no-param-reassign": ["error", {
+      "props": false
+    }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "functions": "never"
+    }],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-filename-extension": ["error", {
+      "extensions": [".js", ".jsx"]
+    }],
+    "flowtype/define-flow-type": 1
   }
 }
