@@ -1,5 +1,9 @@
 // @flow
-export type ReduxNamespaces$ActionCreator = (...args: Array<any>) => Object;
+declare type Action = {
+    type: string,
+};
+
+export type ReduxNamespaces$ActionCreator = (...args: Array<any>) => Action;
 
 export type ReduxNamespaces$CreatorsMap = {
     [name: string]: ReduxNamespaces$ActionCreator

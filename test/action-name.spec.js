@@ -3,7 +3,7 @@ import { ACTION_PREFIX, ACTION_SEPARATOR } from '../src/constants';
 
 const prefix = `${ACTION_PREFIX}${ACTION_SEPARATOR}`;
 
-describe('actionName', () => {
+describe('#actionName()', () => {
     it('should prefix action names', () => {
         const action = actionName('action');
         expect(action).toBe(`${prefix}action`);

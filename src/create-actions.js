@@ -5,23 +5,20 @@ import isString from 'is-string';
 import isFunction from 'is-function';
 import actionName from './action-name';
 import { ACTION_PREFIX } from './constants';
-import type {
-    ReduxNamespaces$CreatorsMap,
-    ReduxNamespaces$ActionCreator
-} from '../flow/types';
+import type { ReduxNamespaces$CreatorsMap } from '../flow/types';
 
 export default (
     namespace: string,
     creatorsMap: ReduxNamespaces$CreatorsMap = {}
 ): ReduxNamespaces$CreatorsMap => {
     invariant(
-        !isEmpty(namespace) || !isString(namespace),
-        'Expected namespace to be a string, got undefined or empty'
+        !isEmpty(namespace) && isString(namespace),
+        'Expected namespace to be a string, got non-string or empty'
     );
 
-    // construct a map for redux-actions
+    // reconstruct creators map with namespace
     return Object.keys(creatorsMap).reduce((creators, key) => {
-        const creator: ReduxNamespaces$ActionCreator = creatorsMap[key];
+        const creator = creatorsMap[key];
 
         invariant(
             isFunction(creator),
@@ -35,7 +32,7 @@ export default (
                 const actionType = action.type;
 
                 invariant(
-                    !isEmpty(actionType) || !isString(actionType),
+                    !isEmpty(actionType) && isString(actionType),
                     'Expected action.type to be a string, got undefined or empty'
                 );
 
