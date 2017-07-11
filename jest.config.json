@@ -1,9 +1,0 @@
-{
-  "testResultsProcessor": "jest-teamcity-reporter",
-  "collectCoverage": true,
-  "coverageReporters": [
-    "teamcity",
-    "lcov",
-    "text"
-  ]
-}
