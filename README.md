@@ -86,13 +86,13 @@ Combine Redux Namespaces with React following the usual `react-redux` setup. How
 
 ```javascript
 const mapDispatchToProps = dispatch =>
-	bindActionCreators(
-		createActions('namespace', {
-	      propAction() {
-	        return { type: 'action' };
-	      }
-		})
-	);
+  bindActionCreators(
+    createActions('namespace', {
+      propAction() {
+        return { type: 'action' };
+      }
+    })
+  );
 ```
 
 ### Caveats
