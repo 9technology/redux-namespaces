@@ -45,6 +45,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.0.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
