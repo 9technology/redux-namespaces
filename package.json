@@ -13,7 +13,14 @@
     "state"
   ],
   "author": "9Technology <opensource@nine.com.au>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9technology/redux-namespaces.git"
+  },
   "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/9technology/redux-namespaces/issues"
+  },
   "scripts": {
     "clean": "rimraf lib dist",
     "prepublish": "npm run build",
