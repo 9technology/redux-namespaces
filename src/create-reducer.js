@@ -18,7 +18,7 @@ export default (...args: Array<ReduxNamespaces$Reducer>): ReduxNamespaces$Reduce
 
     const reducer = reduce(...reducers);
 
-    return (state: Object, action: Object): Object => {
+    return (state: Object = {}, action: Object = {}): Object => {
         // namespace actions only
         if (actionName(action.type) !== action.type) {
             return state;
