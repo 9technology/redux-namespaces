@@ -9,6 +9,14 @@ describe('#createReducer()', () => {
         expect(createReducer.bind(undefined, 'foo')).toThrow(/reducers to be functions/);
     });
 
+    it('should return empty object as default state', () => {
+        const reducer = createReducer(() => {});
+
+        actionName.mockReturnValueOnce('changed');
+
+        expect(reducer()).toEqual({});
+    });
+
     it('should return a reducer function', () => {
         expect(createReducer(() => {})).toEqual(expect.any(Function));
     });
