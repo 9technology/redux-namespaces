@@ -1,6 +1,6 @@
 {
   "name": "redux-namespaces",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "description": "Namespaces for Redux actions, reducers and state.",
