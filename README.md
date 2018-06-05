@@ -9,7 +9,7 @@ Namespace Redux actions, reducers and state.
 
 Build re-usable components in React, or any other UI library, using Redux adds complexity. Namespacing actions, reducers and state allows multiple instances of components to co-exist with independent state.
 
-Read more: _insert article url_
+Read more: [https://www.nine.com.au/tech/2017/07/13/09/40/redux-namespaces](https://www.nine.com.au/tech/2017/07/13/09/40/redux-namespaces)
 
 ### Reducers
 
