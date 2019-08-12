@@ -4,8 +4,12 @@ import isEmpty from 'is-empty';
 import isString from 'is-string';
 import isFunction from 'is-function';
 import actionName from './action-name';
-import { ACTION_PREFIX } from './constants';
-import type { ReduxNamespaces$CreatorsMap } from '../flow/types';
+import {
+    ACTION_PREFIX
+} from './constants';
+import type {
+    ReduxNamespaces$CreatorsMap
+} from '../flow/types';
 
 export default (
     namespace: string,

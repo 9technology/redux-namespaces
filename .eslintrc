@@ -21,6 +21,7 @@
     "react/jsx-filename-extension": ["error", {
       "extensions": [".js", ".jsx"]
     }],
-    "flowtype/define-flow-type": 1
+    "flowtype/define-flow-type": 1,
+    "no-unused-vars": 0
   }
 }
